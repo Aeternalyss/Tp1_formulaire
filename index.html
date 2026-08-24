@@ -1,13 +1,91 @@
+<!-- version temporaire -->
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tp1_formulaire</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tp1_formulaire</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <h1>formulaire don</h1>
+  <!-- formulaire -->
+  <form action="" method="" class="">
+
+    <!-- étape 1 -->
+    <h2>Étape 1</h2>
+    <fieldset>
+      <legend>information sur le don</legend>
+      <div>
+        <input type="radio" name="type_don" id="1" value="1">
+        <label for="1">1 versement</label>
+      </div>
+      <div>
+        <input type="radio" name="type_don" id="2" value="2">
+        <label for="2">versements périodiques</label>
+      </div>
+      <div>
+        <input type="radio" name="type_don" id="3" value="3">
+        <label for="3">montant fixe</label>
+      </div>
+      <div>
+        <input type="radio" name="type_don" id="4" value="4">
+        <label for="4">variable</label>
+      </div>
+      <span class="message-erreur">message erreur placeholder</span>
+    </fieldset>
+    <div class="">
+      <label for="">Montant du don: </label>
+      <input type="number" name="" id="" />
+    </div>
+    <!-- étape 2 -->
+    <h2>Étape 2</h2>
+    <fieldset>
+      <legend>coordonée</legend>
+
+      <!-- nom,entreprise,adresse,courielle,valider -->
+      <label for="">nom </label>
+      <input type="text" name="" id="" />
+      <label for="">entreprise </label>
+      <input type="text" name="" id="" />
+      <label for="">adresse </label>
+      <input type="text" name="" id="" />
+      <label for="">courielle </label>
+      <input type="text" name="" id="" />
+      <span class="message-erreur">message erreur placeholder</span>
+
+      <button class="" type="">suivant</button>
+    </fieldset>
+
+    <!-- étape 3 -->
+    <h2>Étape 3</h2>
+    <fieldset>
+      <legend>information de paiement</legend>
+      <!-- carte credit, num,expiration,validation -->
+      <label for="">carte credit </label>
+      <input type="card" name="" id="" />
+      <label for="">numéro</label>
+      <input type="text" name="" id="" />
+      <label for=""> expiration</label>
+      <input type="text" name="" id="" />
+      <span class="message-erreur">message erreur placeholder</span>
+
+      <button class="" type="">suivant</button>
+
+    </fieldset>
+
+    <!-- étape 4 -->
+    <h2>Étape 4</h2>
+    <fieldset>
+      <legend>résumer</legend>
+      <p>vous aller faire un don de 25$!</p>
+    </fieldset>
+    <button type="submit" formaction="/merci.html">Submit form</button>
+  </form>
+</body>
+
 </html>
