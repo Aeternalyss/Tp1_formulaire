@@ -1,60 +1,54 @@
-import './style.css'
-import heroImg from './assets/hero.png'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import { setupCounter } from './counter.ts'
+import './style.css';
+const etapes = document.querySelectorAll(".etape");
+const btnSuivant = document.getElementById("btn-suivant");
+const btnPrecedent = document.getElementById("btn-precedent");
+let etape = 0;
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${typescriptLogo}" class="framework" alt="TypeScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+console.log("allo?");
 
-<div class="ticks"></div>
+// note de chose a faire 
+// verification de la section a chauqe fois que suivant est cliqué pour être sur que aucune erreur se produit en cour de route 
+// et si ily a erreur on ne passe pas a la section suivant :p
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://www.typescriptlang.org" target="_blank">
-          <img class="button-icon" src="${typescriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+// mettre du css hahah ;-;
+// ajouter certain exemple dans les input 
+const affichage = () => {
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+  // affiche les élément
+  etapes.forEach((etapes, index) => {
+    if (index == etape) {
+      etapes.classList.remove("etape-cachee");
+    } else {
+      etapes.classList.add("etape-cachee");
+    }
+  });
+  if (etape == 0) {
+    btnPrecedent.classList.add("etape-cachee");
+  } else {
+    btnPrecedent.classList.remove("etape-cachee");
+  };
+  if (etape == etapes.length - 1) {
+    btnSuivant.classList.add("etape-cachee");
+  } else {
+    btnSuivant.classList.remove("etape-cachee");
+  };
+};
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// function navigation() {
+// passe a la suivante
+btnSuivant.addEventListener('click', () => {
+  if (etape < etapes.length - 1) {
+    etape++
+    affichage();
+  }
+})
+// retourne a l'étape précédente
+btnPrecedent.addEventListener('click', () => {
+  if (etape > 0) {
+    etape--
+    affichage();
+  }
+});
+/// initialisation
+affichage();
+// navigation();
