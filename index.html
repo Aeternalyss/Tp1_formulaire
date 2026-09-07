@@ -11,36 +11,46 @@
 </head>
 
 <body class="">
-  <h1 class="text-emerald-500 text-xl ">formulaire don</h1>
+  <h1 class="text-3xl flex justify-center">formulaire de don</h1>
+
+  <nav aria-label="Étapes du Formulaire">
+    <ol>
+      <li><a href="#"><span class="sr-only"></span>1</a>Type de don</li>
+      <li><a href="#"><span class="sr-only"></span>2</a></li>
+      <li><a href="#"><span class="sr-only"></span>3</a></li>
+      <li><a href="#"><span class="sr-only"></span>4</a></li>
+    </ol>
+  </nav>
   <!-- formulaire -->
-  <form action="" method="" class="">
+  <form action="" method="get" class="">
 
     <!-- étape 1 -->
-    <section class="etape">
+    <section class="etape flex justify-center">
       <h2 class="">Étape 1</h2>
-      <fieldset>
+      <fieldset role="radiogroup" aria-required="true">
         <legend>information sur le don</legend>
         <div>
-          <input type="radio" name="type_don" id="1" value="1" required>
-          <label for="1">Don unique</label>
+          <input type="radio" name="type_don" id="unique" value="1">
+          <label for="unique">Don unique</label>
         </div>
         <div>
-          <input type="radio" name="type_don" id="2" value="2" required>
-          <label for="2">Parainer un animal pour un an</label>
+          <input type="radio" name="type_don" id="parainer" value="2">
+          <label for="parainer">Parainer un animal pour un an</label>
         </div>
         <div>
-          <input type="radio" name="type_don" id="3" value="3" required>
-          <label for="3">Offrir un parainage</label>
+          <input type="radio" name="type_don" id="offrir" value="3">
+          <label for="offrir">Offrir un parainage</label>
         </div>
         <div>
-          <input type="radio" name="type_don" id="4" value="4" required>
-          <label for="4">Parainage coopératif</label>
+          <input type="radio" name="type_don" id="coop" value="4">
+          <label for="coop">Parainage coopératif</label>
         </div>
-        <span class="message-erreur">message erreur placeholder</span>
+        <span id="erreur-radio" class="message-erreur ">message erreur placeholder</span>
       </fieldset>
       <div class="">
         <label for="montant">Montant du don: </label>
-        <input type="text" name="montant" id="montant" list="montant-recommander" placeholder="Choisisez le montant" required>
+        <input type="text" name="montant" id="montant" list="montant-recommander" placeholder="Choisisez le montant"
+          required>
         <datalist id="montant-recommander">
           <option value="10"></option>
           <option value="25"></option>
@@ -49,10 +59,12 @@
           <option value="100"></option>
           <option value="150"></option>
         </datalist>
+        <span id="erreur-montant" class="message-erreur ">message erreur placeholder</span>
+
       </div>
     </section>
     <!-- étape 2 -->
-    <section class="etape">
+    <section class="etape flex justify-center">
       <h2>Étape 2</h2>
       <fieldset>
         <legend>Coordonée</legend>
@@ -63,31 +75,31 @@
         <input type="text" name="" id="" />
         <label for="">Prénom </label>
         <input type="text" name="" id="" />
-        <label for="">courielle </label>
-        <input type="text" name="" id="" required/>
-        <span class="message-erreur">message erreur placeholder</span>
+        <label for="">couriel </label>
+        <input type="mail" name="" id="" required />
+        <span id="erreur-" class="message-erreur">message erreur placeholder</span>
         Étape précédente
       </fieldset>
     </section>
     <!-- étape 3 -->
-    <section class="etape">
+    <section class="etape flex justify-center">
       <h2>Étape 3</h2>
       <fieldset>
         <legend>information de paiement</legend>
         <!-- carte credit, num,expiration,validation -->
         <label for="">carte credit </label>
-        <input type="card" name="" id="" required/>
+        <input type="card" name="" id="" required />
         <label for="">numéro</label>
-        <input type="text" name="" id="" required/>
+        <input type="text" name="" id="" required />
         <label for=""> expiration required</label>
         <input type="text" name="" id="" />
-        <span class="message-erreur">message erreur placeholder</span>
+        <span id="erreur-" class="message-erreur">message erreur placeholder</span>
         Étape précédente
 
       </fieldset>
     </section>
     <!-- étape 4 -->
-    <section class="etape">
+    <section class="etape flex justify-center">
       <h2>Étape 4</h2>
       <fieldset>
         <legend>résumer</legend>
@@ -96,10 +108,12 @@
       </fieldset>
       <button class="bg-emerald-400" type="submit" formaction="/merci.html">Submit form</button>
     </section>
-    <button type="button" id="btn-precedent">
+    <button type="button" id="btn-precedent" class="flex justify-center p-6 bg-pink-400">
       Étape précédente
     </button>
-    <button id="btn-suivant" type="button">Étape suivant</button>
+    <button id="btn-suivant" type="button" class="flex justify-center-center p-7 bg-emerald-400">
+      Étape suivante
+    </button>
   </form>
 
   <script type="module" src="src/main.ts"></script>
