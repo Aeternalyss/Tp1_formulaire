@@ -23,12 +23,10 @@ async function obtenirMessages(): Promise<void> {
   console.log(messagesJSON);
 }
 // note de chose a faire 
-// verification de la section a chauqe fois que suivant est cliqué pour être sur que aucune erreur se produit en cour de route 
+// ajout verification avec regex 
 // et si ily a erreur on ne passe pas a la section suivant :p
 
 // mettre du css hahah ;-;
-// ajouter certain exemple dans les input
-
 
 // validation formulaire
 function valideRadios(champs: NodeListOf<HTMLInputElement>): boolean {
@@ -39,11 +37,17 @@ function valideRadios(champs: NodeListOf<HTMLInputElement>): boolean {
     if (champs[i].checked) {
       cochee = true;
       break;
-    } else {
-      (!cochee)
-      cochee = false;
     }
   }
+  const erreurRadio = document.getElementById("erreur-radios") as HTMLSpanElement;
+  // faire apparaitre le message erreur
+  if (!cochee) {
+    erreurRadio.innerText = messagesJSON["radios"].vide ?? "";
+  }
+  else {
+    erreurRadio.innerText = "";
+  }
+
   return cochee;
 
 }
@@ -102,26 +106,47 @@ function validerEtape(etape: number): boolean {
       }
       break;
 
-      // case 1:
-      //   const nomElement = document.getElementById('nom') as HTMLInputElement;
-      //   const prenomElement = document.getElementById('prenom') as HTMLInputElement;
-      //   const emailElement = document.getElementById('email') as HTMLInputElement;
+    case 1:
+      const nomElement = document.getElementById('nom') as HTMLInputElement;
+      const prenomElement = document.getElementById('prenom') as HTMLInputElement;
+      const emailElement = document.getElementById('courriel') as HTMLInputElement;
       //   const telephoneElement = document.getElementById('telephone') as HTMLInputElement;
 
-      //   const nomValide = validerChamp(nomElement);
-      //   const prenomValide = validerChamp(prenomElement);
-      //   const emailValide = validerChamp(emailElement);
+      const nomValide = validerChamp(nomElement);
+      const prenomValide = validerChamp(prenomElement);
+      const emailValide = validerChamp(emailElement);
       //   const telephoneValide = validerChamp(telephoneElement);
 
-      //   if (!nomValide || !prenomValide || !emailValide || !telephoneValide) {
-      //     etapeValide = false;
-      //   }
-      //   else {
-      //     etapeValide = true;
-      //   }
+      if (!nomValide || !prenomValide || !emailValide) {
+        etapeValide = false;
+      }
+      else {
+        etapeValide = true;
+      }
 
 
-      // break;
+      break;
+    case 2:
+      const numCarteElement =
+        document.getElementById('numCarte') as HTMLInputElement;
+
+      const expirationElement =
+        document.getElementById('expiration') as HTMLInputElement;
+
+      const numSecuElement =
+        document.getElementById('numSecu') as HTMLInputElement;
+
+      const numCarteValide = validerChamp(numCarteElement);
+      const expirationValide = validerChamp(expirationElement);
+      const numSecuValide = validerChamp(numSecuElement);
+
+      if (!numCarteValide || !expirationValide || !numSecuValide) {
+        etapeValide = false;
+      }
+      else {
+        etapeValide = true;
+      }
+      break;
   }
 
   return etapeValide;
@@ -171,6 +196,9 @@ btnPrecedent.addEventListener('click', () => {
 
 
 /// initialisation
-affichage();
-obtenirMessages();
+async function initialiser(): Promise<void> {
+  await obtenirMessages();
+  affichage();
+}
+initialiser();
 // navigation();

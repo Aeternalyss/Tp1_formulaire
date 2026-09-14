@@ -13,19 +13,19 @@
 <body class="">
   <h1 class="text-3xl flex justify-center">formulaire de don</h1>
 
-  <nav aria-label="Étapes du Formulaire">
-    <ol>
-      <li><a href="#"><span class="sr-only"></span>1</a>Type de don</li>
-      <li><a href="#"><span class="sr-only"></span>2</a></li>
-      <li><a href="#"><span class="sr-only"></span>3</a></li>
-      <li><a href="#"><span class="sr-only"></span>4</a></li>
+  <nav aria-label="Étapes du Formulaire" class=" flex justify-center">
+    <ol class="flex flex-row gap-4 items-center ">
+      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Type de don</span></a></li>
+      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Coordonées</span></a></li>
+      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Paiement</span></a></li>
+      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Merci!</span></a></li>
     </ol>
   </nav>
   <!-- formulaire -->
   <form action="" method="get" class="">
 
     <!-- étape 1 -->
-    <section class="etape flex justify-center">
+    <section class="etape ">
       <h2 class="">Étape 1</h2>
       <fieldset role="radiogroup" aria-required="true">
         <legend>information sur le don</legend>
@@ -45,8 +45,9 @@
           <input type="radio" name="type_don" id="coop" value="4">
           <label for="coop">Parainage coopératif</label>
         </div>
-        <span id="erreur-radio" class="message-erreur ">message erreur placeholder</span>
+        <span id="erreur-radios" class="message-erreur text-red-600" role="alert"></span>
       </fieldset>
+
       <div class="">
         <label for="montant">Montant du don: </label>
         <input type="text" name="montant" id="montant" list="montant-recommander" placeholder="Choisisez le montant"
@@ -59,7 +60,7 @@
           <option value="100"></option>
           <option value="150"></option>
         </datalist>
-        <span id="erreur-montant" class="message-erreur ">message erreur placeholder</span>
+        <span id="erreur-montant" class="message-erreur text-red-600" role="alert"></span>
 
       </div>
     </section>
@@ -70,14 +71,18 @@
         <legend>Coordonée</legend>
         <!-- résumer du don , option de supprimer -->
 
-        <!-- nom,entreprise,adresse,courielle,valider -->
-        <label for="">Nom </label>
-        <input type="text" name="" id="" />
-        <label for="">Prénom </label>
-        <input type="text" name="" id="" />
-        <label for="">couriel </label>
-        <input type="mail" name="" id="" required />
-        <span id="erreur-" class="message-erreur">message erreur placeholder</span>
+        <!-- nom,entreprise,adresse,courrielle,valider -->
+        <label for="nom">Nom </label>
+        <input type="text" id="nom" aria-describedby="family-name" />
+        <span id="erreur-nom" class="message-erreur text-red-600" role="alert"></span>
+
+        <label for="prenom">Prénom </label>
+        <input type="text" id="prenom" aria-describedby="given-name" />
+        <span id="erreur-prenom" class="message-erreur text-red-600" role="alert"></span>
+
+        <label for="courriel">courriel </label>
+        <input type="email" id="courriel" required aria-describedby="email" />
+        <span id="erreur-courriel" class="message-erreur text-red-600" role="alert"></span>
         Étape précédente
       </fieldset>
     </section>
@@ -87,13 +92,17 @@
       <fieldset>
         <legend>information de paiement</legend>
         <!-- carte credit, num,expiration,validation -->
-        <label for="">carte credit </label>
-        <input type="card" name="" id="" required />
-        <label for="">numéro</label>
-        <input type="text" name="" id="" required />
-        <label for=""> expiration required</label>
-        <input type="text" name="" id="" />
-        <span id="erreur-" class="message-erreur">message erreur placeholder</span>
+        <label for="numCarte">carte credit </label>
+        <input type="card" id="numCarte" required />
+        <span id="erreur-numCarte" class="message-erreur text-red-600" role="alert"></span>
+
+        <label for="expiration"> expiration </label>
+        <input type="text" id="expiration" placeholder="(MM/AA)" required />
+        <span id="erreur-expiration" class="message-erreur text-red-600" role="alert"></span>
+
+        <label for="numSecu">numéro</label>
+        <input type="text" id="numSecu" required />
+        <span id="erreur-numSecu" class="message-erreur text-red-600" role="alert"></span>
         Étape précédente
 
       </fieldset>
