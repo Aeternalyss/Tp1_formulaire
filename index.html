@@ -10,10 +10,10 @@
   <title>tp1_formulaire</title>
 </head>
 
-<body class="">
-  <h1 class="text-3xl flex justify-center">formulaire de don</h1>
+<body class="bg-gray-200">
+  <h1 class="text-3xl flex justify-center bg-amber-100 p-10">formulaire de don</h1>
 
-  <nav aria-label="Étapes du Formulaire" class=" flex justify-center">
+  <nav aria-label="Étapes du Formulaire" class=" flex justify-center p-5">
     <ol class="flex flex-row gap-4 items-center ">
       <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Type de don</span></a></li>
       <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Coordonées</span></a></li>
@@ -22,33 +22,33 @@
     </ol>
   </nav>
   <!-- formulaire -->
-  <form action="" method="get" class="">
+  <form action="" method="get" class="flex flex-col items-center">
 
     <!-- étape 1 -->
-    <section class="etape ">
+    <section class="etape flex flex-col items-center">
       <h2 class="">Étape 1</h2>
-      <fieldset role="radiogroup" aria-required="true">
+      <fieldset class="flex flex-col" role="radiogroup" aria-required="true">
         <legend>information sur le don</legend>
         <div>
-          <input type="radio" name="type_don" id="unique" value="1">
+          <input class="accent-red-500" type="radio" name="type_don" id="unique" value="1">
           <label for="unique">Don unique</label>
         </div>
         <div>
-          <input type="radio" name="type_don" id="parainer" value="2">
+          <input class="accent-red-500" type="radio" name="type_don" id="parainer" value="2">
           <label for="parainer">Parainer un animal pour un an</label>
         </div>
         <div>
-          <input type="radio" name="type_don" id="offrir" value="3">
+          <input class="accent-red-500" type="radio" name="type_don" id="offrir" value="3">
           <label for="offrir">Offrir un parainage</label>
         </div>
         <div>
-          <input type="radio" name="type_don" id="coop" value="4">
+          <input class="accent-red-500" type="radio" name="type_don" id="coop" value="4">
           <label for="coop">Parainage coopératif</label>
         </div>
         <span id="erreur-radios" class="message-erreur text-red-600" role="alert"></span>
       </fieldset>
 
-      <div class="">
+      <div class="flex flex-col">
         <label for="montant">Montant du don: </label>
         <input type="text" name="montant" id="montant" list="montant-recommander" placeholder="Choisisez le montant"
           required>
@@ -65,9 +65,9 @@
       </div>
     </section>
     <!-- étape 2 -->
-    <section class="etape flex justify-center">
+    <section class="etape flex flex-col items-center">
       <h2>Étape 2</h2>
-      <fieldset>
+      <fieldset class="flex flex-col">
         <legend>Coordonée</legend>
         <!-- résumer du don , option de supprimer -->
 
@@ -87,9 +87,9 @@
       </fieldset>
     </section>
     <!-- étape 3 -->
-    <section class="etape flex justify-center">
+    <section class="etape flex flex-col items-center">
       <h2>Étape 3</h2>
-      <fieldset>
+      <fieldset class="flex flex-col">
         <legend>information de paiement</legend>
         <!-- carte credit, num,expiration,validation -->
         <label for="numCarte">carte credit </label>
@@ -102,27 +102,29 @@
 
         <label for="numSecu">numéro</label>
         <input type="text" id="numSecu" required />
-        <span id="erreur-numSecu" class="message-erreur text-red-600" role="alert"></span>
+        <span id="erreur-numSecu" class="message-erreur text-red-600 " role="alert"></span>
         Étape précédente
 
       </fieldset>
     </section>
     <!-- étape 4 -->
-    <section class="etape flex justify-center">
+    <section class="etape flex flex-col items-center">
       <h2>Étape 4</h2>
-      <fieldset>
+      <fieldset class="flex flex-col">
         <legend>résumer</legend>
         <!-- montant raison du don merci de participer a aider la faune bla bla bla -->
         <p>vous aller faire un don de 25$!</p>
       </fieldset>
-      <button class="bg-emerald-400" type="submit" formaction="/merci.html">Submit form</button>
+      <button class="bg-red-500 rounded-2xl p-6" type="submit" formaction="/merci.html">Confirmer</button>
     </section>
-    <button type="button" id="btn-precedent" class="flex justify-center p-6 bg-pink-400">
-      Étape précédente
-    </button>
-    <button id="btn-suivant" type="button" class="flex justify-center-center p-7 bg-emerald-400">
-      Étape suivante
-    </button>
+    <div class="flex justify-center items-center gap-4 p-5">
+      <button type="button" id="btn-precedent" class="p-6 bg-red-500 rounded-2xl">
+        Étape précédente
+      </button>
+      <button id="btn-suivant" type="button" class="p-6 bg-red-500 rounded-2xl">
+        Étape suivante
+      </button>
+    </div>
   </form>
 
   <script type="module" src="src/main.ts"></script>

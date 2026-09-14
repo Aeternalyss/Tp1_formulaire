@@ -25,6 +25,8 @@ async function obtenirMessages(): Promise<void> {
 // note de chose a faire 
 // ajout verification avec regex 
 // et si ily a erreur on ne passe pas a la section suivant :p
+// changer color de la nav selon étape
+// typo
 
 // mettre du css hahah ;-;
 
