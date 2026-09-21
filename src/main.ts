@@ -30,16 +30,14 @@ async function obtenirMessages(): Promise<void> {
   console.log(messagesJSON);
 }
 // note de chose a faire 
-// ajout verification avec regex 
-// et si ily a erreur on ne passe pas a la section suivant :p
-// ajouter adresse de facturation
-// changer color de la nav selon étape
 // typo
 // verifier si les msg erreur s'affiche
-
-// mettre du css hahah ;-;
+// ajout icone svg
+// page merci --faire css
+// version mobile
 
 // validation formulaire
+
 function valideRadios(champs: NodeListOf<HTMLInputElement>): boolean {
   // validation radio
 
@@ -79,21 +77,34 @@ function validerChamp(champ: HTMLInputElement): boolean {
 
     valide = false;
     erreurElement.innerText = messagesJSON[id].vide;
+    const img = document.createElement("img")
+    img.style.width = "20px"
+    img.src = "src/assets/logo_msg_erreur.svg";
+    erreurElement.prepend(img)
   }
   else if (champ.validity.typeMismatch && messagesJSON[id].type) {
     // Type de données incorrect (email, url, tel, etc.)
     valide = false;
     erreurElement.innerText = messagesJSON[id].type;
+    const img = document.createElement("img")
+    img.style.width = "20px"
+    img.src = "src/assets/logo_msg_erreur.svg";
+    erreurElement.prepend(img)
   }
   else if (champ.validity.patternMismatch && messagesJSON[id].pattern) {
     // Ne correspond pas au pattern regex défini
     valide = false;
     erreurElement.innerText = messagesJSON[id].pattern;
+    const img = document.createElement("img")
+    img.style.width = "20px"
+    img.src = "src/assets/logo_msg_erreur.svg";
+    erreurElement.prepend(img)
   }
   else {
     // La validation n'a pas d'erreur, donc on assigne la variable vraie
     valide = true;
     erreurElement.innerText = "";
+
   }
 
   // console.log("validiter " + valide)

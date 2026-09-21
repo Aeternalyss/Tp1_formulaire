@@ -5,4 +5,7 @@ border-radius: 8px;
 background-color: white;
 
 }
-
+span{
+    display: flex;
+    flex-direction: row;
+}
