@@ -5,7 +5,8 @@ const menu: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(".menu") a
 const btnSuivant = document.getElementById("btn-suivant") as HTMLButtonElement;
 const btnPrecedent = document.getElementById("btn-precedent") as HTMLButtonElement;
 const menuNav: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(".menuNav") as NodeListOf<HTMLAnchorElement>;
-
+const elementCible = document.getElementById("cibleMontant") as HTMLSpanElement
+const montantElement = document.getElementById('montant') as HTMLInputElement;
 
 let numNav = 0;
 let etape = 0;
@@ -107,13 +108,13 @@ champs.forEach((champs) => {
 
 
 
+
 function validerEtape(etape: number): boolean {
   console.log("etape actuelle" + etape)
 
   switch (etape) {
     case 0:
       const radiosElement: NodeListOf<HTMLInputElement> = document.getElementsByName('type_don') as NodeListOf<HTMLInputElement>;
-      const montantElement = document.getElementById('montant') as HTMLInputElement;
 
       const radiosValide = valideRadios(radiosElement);
       const montantValide = validerChamp(montantElement);
@@ -123,6 +124,7 @@ function validerEtape(etape: number): boolean {
       }
       else {
         etapeValide = true;
+
       }
       break;
 
@@ -179,6 +181,9 @@ function validerEtape(etape: number): boolean {
 
   return etapeValide;
 }
+montantElement.addEventListener("input", () => {
+  elementCible.innerText = montantElement.value
+});
 
 // affichage
 const affichage = () => {
@@ -214,6 +219,7 @@ const affichage = () => {
     }
   })
 };
+
 
 // function navigation() {
 // navigation left step
