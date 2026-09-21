@@ -1,11 +1,17 @@
 import './style.css';
 
 const etapes = document.querySelectorAll(".etape");
+const menu: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(".menu") as NodeListOf<HTMLAnchorElement>;
 const btnSuivant = document.getElementById("btn-suivant") as HTMLButtonElement;
 const btnPrecedent = document.getElementById("btn-precedent") as HTMLButtonElement;
-let etape = 0;
-let etapeValide = false;
+const menuNav: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(".menuNav") as NodeListOf<HTMLAnchorElement>;
 
+
+let numNav = 0;
+let etape = 0;
+let etapeVisiter = 0
+let etapeValide = false;
+// regex
 
 interface messageErreur {
   vide?: string;
@@ -25,8 +31,10 @@ async function obtenirMessages(): Promise<void> {
 // note de chose a faire 
 // ajout verification avec regex 
 // et si ily a erreur on ne passe pas a la section suivant :p
+// ajouter adresse de facturation
 // changer color de la nav selon étape
 // typo
+// verifier si les msg erreur s'affiche
 
 // mettre du css hahah ;-;
 
@@ -84,11 +92,21 @@ function validerChamp(champ: HTMLInputElement): boolean {
   else {
     // La validation n'a pas d'erreur, donc on assigne la variable vraie
     valide = true;
+    erreurElement.innerText = "";
   }
 
   // console.log("validiter " + valide)
   return valide;
 }
+// Vérifie la validité du champ lorsqu'on le quitte
+
+const champs = document.querySelectorAll("input");
+champs.forEach((champs) => {
+  champs.addEventListener("blur", () => { validerChamp(champs); })
+});
+
+
+
 function validerEtape(etape: number): boolean {
   console.log("etape actuelle" + etape)
 
@@ -112,14 +130,22 @@ function validerEtape(etape: number): boolean {
       const nomElement = document.getElementById('nom') as HTMLInputElement;
       const prenomElement = document.getElementById('prenom') as HTMLInputElement;
       const emailElement = document.getElementById('courriel') as HTMLInputElement;
+      const adresseElement = document.getElementById('adresse') as HTMLInputElement;
+      const villeElement = document.getElementById('ville') as HTMLInputElement;
+      const postalElement = document.getElementById('postal') as HTMLInputElement;
+
       //   const telephoneElement = document.getElementById('telephone') as HTMLInputElement;
 
       const nomValide = validerChamp(nomElement);
       const prenomValide = validerChamp(prenomElement);
       const emailValide = validerChamp(emailElement);
+      const adresseValide = validerChamp(adresseElement);
+      const villeValide = validerChamp(villeElement);
+      const posatlValide = validerChamp(postalElement);
+
       //   const telephoneValide = validerChamp(telephoneElement);
 
-      if (!nomValide || !prenomValide || !emailValide) {
+      if (!nomValide || !prenomValide || !emailValide || !adresseValide || !villeValide || !posatlValide) {
         etapeValide = false;
       }
       else {
@@ -175,15 +201,51 @@ const affichage = () => {
   } else {
     btnSuivant.classList.remove("sr-only");
   };
+
+  // update menu
+  menu.forEach((menu, index) => {
+    if (index <= etape) {
+      menu.classList.remove("bg-gray-300");
+      menu.classList.add("bg-red-500", "hover:bg-red-800", "hover:border-red-800");
+    } else if (index >= etape) {
+      menu.classList.remove("bg-red-500", "hover:bg-red-800", "hover:border-red-800");
+      menu.classList.add("bg-gray-300");
+
+    }
+  })
 };
 
 // function navigation() {
+// navigation left step
+menuNav.forEach(element => {
+  element.addEventListener('click', () => {
+    validerEtape(etape);
+    if (etapeValide != false) {
+      etapeVisiter++
+    }
+
+    console.log("element:", element, etape)
+    // on va chercher le numéro de l'étape que j'ai déclarer dans le html
+    numNav = Number(element.dataset.step);
+
+    if (numNav <= etapeVisiter) {
+
+      etape = numNav;
+      console.log("direction vers", etapeVisiter); // Output: 5 (as a number type)
+
+      affichage();
+    }
+  })
+});
+
+
 // passe a la suivante
 btnSuivant.addEventListener('click', () => {
   validerEtape(etape);
   if (etapeValide != false) {
     if (etape < etapes.length - 1) {
       etape++
+      etapeVisiter++
       affichage();
     }
   }
@@ -202,5 +264,6 @@ async function initialiser(): Promise<void> {
   await obtenirMessages();
   affichage();
 }
+
 initialiser();
 // navigation();

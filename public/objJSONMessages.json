@@ -17,21 +17,39 @@
     "pattern": "Entrez une sujet valide."
   },
   "message": {
-    "vide": "Entrez un message."
+    "vide": "Entrez un message.",
+    "pattern": "Assurez-vous d'entrer une adresse courriel valide."
   },
   "radios": {
-    "vide": "Selection une option de don."
+    "vide": "Selection une option de don.",
+    "pattern": "Entrez une sujet valide."
   },
   "montant": {
-    "vide": "Vous-devez entrer un montant ou choisir un montant."
+    "vide": "Vous-devez entrer un montant ou choisir un montant.",
+    "pattern": "Entrez une sujet valide."
   },
   "numCarte": {
-    "vide": "Veuillez entrer votre numéro de carte."
+    "vide": "Veuillez entrer votre numéro de carte.",
+    "pattern": "Entrez une sujet valide."
   },
   "expiration": {
-    "vide": "Veuillez entrer la date d'expiration."
+    "vide": "Veuillez entrer la date d'expiration.",
+    "pattern": "Entrez une sujet valide."
   },
   "numSecu": {
-    "vide": "Veuillez entrer le numéro de sécurité."
+    "vide": "Veuillez entrer le numéro de sécurité.",
+    "pattern": "Entrez une sujet valide."
+  },
+  "adresse": {
+    "vide": "Veuillez entrer le nom de rue et son numéro civique.",
+    "pattern": "Entrez une sujet valide."
+  },
+  "ville": {
+    "vide": "Veuillez entrer le nom de votre ville",
+    "pattern": "Entrez une sujet valide."
+  },
+  "postal": {
+    "vide": "Veuillez entrer votre code postal.",
+    "pattern": "Entrez une sujet valide."
   }
 }

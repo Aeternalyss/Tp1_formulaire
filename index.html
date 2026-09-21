@@ -14,35 +14,50 @@
   <h1 class="text-3xl flex justify-center bg-amber-100 p-10">formulaire de don</h1>
 
   <nav aria-label="Étapes du Formulaire" class=" flex justify-center p-5">
-    <ol class="flex flex-row gap-4 items-center ">
-      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Type de don</span></a></li>
-      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Coordonées</span></a></li>
-      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Paiement</span></a></li>
-      <li class="w-20 h-20 bg-red-500 rounded-full"><a href="#"><span class="sr-only">Merci!</span></a></li>
+    <ol class="flex flex-row items-center ">
+      <a href="#etape1" class="menuNav" data-step="0">
+        <li
+          class="menu w-20 h-20 border-4 border-red-500 bg-red-500 rounded-full hover:bg-red-800 hover:border-red-800">
+          <span class="opacity-0">Type de
+            don</span>
+        </li>
+      </a>
+      <span class="bg-red-500 w-10 h-2"></span>
+      <a href="#etape2" class="menuNav" data-step="1">
+        <li class="menu w-20 h-20 border-4 border-red-500 rounded-full "><span class="opacity-0">Coordonées</span></li>
+      </a>
+      <span class="bg-red-500 w-10 h-2"></span>
+      <a href="#etape3" class="menuNav" data-step="2">
+        <li class="menu w-20 h-20 border-4 border-red-500 rounded-full "><span class="opacity-0">Paiement</span></li>
+      </a>
+      <span class="bg-red-500 w-10 h-2"></span>
+      <a href="#etape4" class="menuNav" data-step="3">
+        <li class="menu w-20 h-20 border-4 border-red-500 rounded-full "><span class="opacity-0">Merci!</span></li>
+      </a>
     </ol>
   </nav>
   <!-- formulaire -->
   <form action="" method="get" class="flex flex-col items-center">
 
     <!-- étape 1 -->
-    <section class="etape flex flex-col items-center">
+    <section class="etape flex flex-col items-center" id="etape1">
       <h2 class="">Étape 1</h2>
       <fieldset class="flex flex-col" role="radiogroup" aria-required="true">
         <legend>information sur le don</legend>
         <div>
-          <input class="accent-red-500" type="radio" name="type_don" id="unique" value="1">
+          <input class="accent-gray-500" type="radio" name="type_don" id="unique" value="1">
           <label for="unique">Don unique</label>
         </div>
         <div>
-          <input class="accent-red-500" type="radio" name="type_don" id="parainer" value="2">
+          <input class="accent-gray-500" type="radio" name="type_don" id="parainer" value="2">
           <label for="parainer">Parainer un animal pour un an</label>
         </div>
         <div>
-          <input class="accent-red-500" type="radio" name="type_don" id="offrir" value="3">
+          <input class="accent-gray-500" type="radio" name="type_don" id="offrir" value="3">
           <label for="offrir">Offrir un parainage</label>
         </div>
         <div>
-          <input class="accent-red-500" type="radio" name="type_don" id="coop" value="4">
+          <input class="accent-gray-500" type="radio" name="type_don" id="coop" value="4">
           <label for="coop">Parainage coopératif</label>
         </div>
         <span id="erreur-radios" class="message-erreur text-red-600" role="alert"></span>
@@ -51,7 +66,7 @@
       <div class="flex flex-col">
         <label for="montant">Montant du don: </label>
         <input type="text" name="montant" id="montant" list="montant-recommander" placeholder="Choisisez le montant"
-          required>
+          pattern="^\d+$" required>
         <datalist id="montant-recommander">
           <option value="10"></option>
           <option value="25"></option>
@@ -65,7 +80,7 @@
       </div>
     </section>
     <!-- étape 2 -->
-    <section class="etape flex flex-col items-center">
+    <section class="etape flex flex-col items-center" id="etape2">
       <h2>Étape 2</h2>
       <fieldset class="flex flex-col">
         <legend>Coordonée</legend>
@@ -73,42 +88,61 @@
 
         <!-- nom,entreprise,adresse,courrielle,valider -->
         <label for="nom">Nom </label>
-        <input type="text" id="nom" aria-describedby="family-name" />
+        <input type="text" id="nom" required aria-describedby="family-name" autocomplete="given-name"
+          pattern="^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)*$" />
         <span id="erreur-nom" class="message-erreur text-red-600" role="alert"></span>
 
         <label for="prenom">Prénom </label>
-        <input type="text" id="prenom" aria-describedby="given-name" />
+        <input type="text" id="prenom" required aria-describedby="given-name" autocomplete="name"
+          pattern="^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)*$" />
         <span id="erreur-prenom" class="message-erreur text-red-600" role="alert"></span>
 
-        <label for="courriel">courriel </label>
-        <input type="email" id="courriel" required aria-describedby="email" />
+        <label for="courriel">Courriel </label>
+        <input type="email" id="courriel" required aria-describedby="email" autocomplete="email"
+          pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" />
         <span id="erreur-courriel" class="message-erreur text-red-600" role="alert"></span>
-        Étape précédente
+
+        <label for="courriel">Adresse </label>
+        <input type="text" id="adresse" required aria-describedby="street-address" autocomplete="street-address"
+          pattern="^[0-9]+[a-zA-ZÀ-ÿ0-9 \-]+$" />
+        <span id="erreur-adresse" class="message-erreur text-red-600" role="alert"></span>
+
+        <label for="courriel">Ville </label>
+        <input type="text" id="ville" required aria-describedby="ville" autocomplete="address-level2"
+          pattern="^[a-zA-ZÀ-ÿ0-9 '\-]+$" />
+        <span id="erreur-ville" class="message-erreur text-red-600" role="alert"></span>
+
+        <label for="courriel">Code postal</label>
+        <input type="text" id="postal" required aria-describedby="postal-code" autocomplete="postal-code"
+          pattern="^[a-zA-Z][0-9][a-zA-Z] [0-9][a-zA-Z][0-9]$" />
+        <span id="erreur-postal" class="message-erreur text-red-600" role="alert"></span>
+
+
       </fieldset>
     </section>
     <!-- étape 3 -->
-    <section class="etape flex flex-col items-center">
+    <section class="etape flex flex-col items-center" id="etape3">
       <h2>Étape 3</h2>
       <fieldset class="flex flex-col">
         <legend>information de paiement</legend>
         <!-- carte credit, num,expiration,validation -->
         <label for="numCarte">carte credit </label>
-        <input type="card" id="numCarte" required />
+        <input type="card" id="numCarte" required pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" />
         <span id="erreur-numCarte" class="message-erreur text-red-600" role="alert"></span>
 
         <label for="expiration"> expiration </label>
-        <input type="text" id="expiration" placeholder="(MM/AA)" required />
+        <input type="text" id="expiration" placeholder="(MM/AA)" required pattern="^\d+$" />
         <span id="erreur-expiration" class="message-erreur text-red-600" role="alert"></span>
 
-        <label for="numSecu">numéro</label>
-        <input type="text" id="numSecu" required />
+        <label for="numSecu">numéro de sécurité</label>
+        <input type="text" id="numSecu" required pattern="^\d+$" />
         <span id="erreur-numSecu" class="message-erreur text-red-600 " role="alert"></span>
         Étape précédente
 
       </fieldset>
     </section>
     <!-- étape 4 -->
-    <section class="etape flex flex-col items-center">
+    <section class="etape flex flex-col items-center" id="etape4">
       <h2>Étape 4</h2>
       <fieldset class="flex flex-col">
         <legend>résumer</legend>
@@ -119,10 +153,10 @@
     </section>
     <div class="flex justify-center items-center gap-4 p-5">
       <button type="button" id="btn-precedent" class="p-6 bg-red-500 rounded-2xl">
-        Étape précédente
+        Précédent
       </button>
       <button id="btn-suivant" type="button" class="p-6 bg-red-500 rounded-2xl">
-        Étape suivante
+        Suivant
       </button>
     </div>
   </form>
