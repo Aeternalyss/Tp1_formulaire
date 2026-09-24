@@ -1,6 +1,6 @@
 @import "tailwindcss";
 input{
-border: 4px solid #555557 ;
+border: 3px solid #555557 ;
 border-radius: 8px;
 background-color: white;
 
@@ -8,4 +8,5 @@ background-color: white;
 span{
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
 }

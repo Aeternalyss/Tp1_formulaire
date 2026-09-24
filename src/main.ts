@@ -9,7 +9,7 @@ const elementCible = document.getElementById("cibleMontant") as HTMLSpanElement
 const montantElement = document.getElementById('montant') as HTMLInputElement;
 
 let numNav = 0;
-let etape = 0;
+let etape = 3;
 let etapeVisiter = 0
 let etapeValide = false;
 // regex
@@ -79,7 +79,7 @@ function validerChamp(champ: HTMLInputElement): boolean {
     erreurElement.innerText = messagesJSON[id].vide;
     const img = document.createElement("img")
     img.style.width = "20px"
-    img.src = "src/assets/logo_msg_erreur.svg";
+    img.src = "public/logo_msg_erreur.svg";
     erreurElement.prepend(img)
   }
   else if (champ.validity.typeMismatch && messagesJSON[id].type) {
@@ -88,7 +88,7 @@ function validerChamp(champ: HTMLInputElement): boolean {
     erreurElement.innerText = messagesJSON[id].type;
     const img = document.createElement("img")
     img.style.width = "20px"
-    img.src = "src/assets/logo_msg_erreur.svg";
+    img.src = "public/logo_msg_erreur.svg";
     erreurElement.prepend(img)
   }
   else if (champ.validity.patternMismatch && messagesJSON[id].pattern) {
@@ -97,7 +97,7 @@ function validerChamp(champ: HTMLInputElement): boolean {
     erreurElement.innerText = messagesJSON[id].pattern;
     const img = document.createElement("img")
     img.style.width = "20px"
-    img.src = "src/assets/logo_msg_erreur.svg";
+    img.src = "public/logo_msg_erreur.svg";
     erreurElement.prepend(img)
   }
   else {
@@ -237,15 +237,12 @@ const affichage = () => {
 menuNav.forEach(element => {
   element.addEventListener('click', () => {
     validerEtape(etape);
-    if (etapeValide != false) {
-      etapeVisiter++
-    }
 
     console.log("element:", element, etape)
     // on va chercher le numéro de l'étape que j'ai déclarer dans le html
     numNav = Number(element.dataset.step);
 
-    if (numNav <= etapeVisiter) {
+    if (numNav <= etape) {
 
       etape = numNav;
       console.log("direction vers", etapeVisiter); // Output: 5 (as a number type)
