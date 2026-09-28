@@ -9,7 +9,7 @@ const elementCible = document.getElementById("cibleMontant") as HTMLSpanElement
 const montantElement = document.getElementById('montant') as HTMLInputElement;
 
 let numNav = 0;
-let etape = 3;
+let etape = 0;
 let etapeVisiter = 0
 let etapeValide = false;
 // regex
@@ -79,7 +79,7 @@ function validerChamp(champ: HTMLInputElement): boolean {
     erreurElement.innerText = messagesJSON[id].vide;
     const img = document.createElement("img")
     img.style.width = "20px"
-    img.src = "public/logo_msg_erreur.svg";
+    img.src = "logo_msg_erreur.svg";
     erreurElement.prepend(img)
   }
   else if (champ.validity.typeMismatch && messagesJSON[id].type) {
@@ -88,7 +88,7 @@ function validerChamp(champ: HTMLInputElement): boolean {
     erreurElement.innerText = messagesJSON[id].type;
     const img = document.createElement("img")
     img.style.width = "20px"
-    img.src = "public/logo_msg_erreur.svg";
+    img.src = "logo_msg_erreur.svg";
     erreurElement.prepend(img)
   }
   else if (champ.validity.patternMismatch && messagesJSON[id].pattern) {
@@ -97,7 +97,7 @@ function validerChamp(champ: HTMLInputElement): boolean {
     erreurElement.innerText = messagesJSON[id].pattern;
     const img = document.createElement("img")
     img.style.width = "20px"
-    img.src = "public/logo_msg_erreur.svg";
+    img.src = "logo_msg_erreur.svg";
     erreurElement.prepend(img)
   }
   else {
