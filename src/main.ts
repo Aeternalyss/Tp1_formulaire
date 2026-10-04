@@ -154,11 +154,11 @@ function validerEtape(etape: number): boolean {
       const emailValide = validerChamp(emailElement);
       const adresseValide = validerChamp(adresseElement);
       const villeValide = validerChamp(villeElement);
-      const posatlValide = validerChamp(postalElement);
+      const posatalValide = validerChamp(postalElement);
 
       //   const telephoneValide = validerChamp(telephoneElement);
 
-      if (!nomValide || !prenomValide || !emailValide || !adresseValide || !villeValide || !posatlValide) {
+      if (!nomValide || !prenomValide || !emailValide || !adresseValide || !villeValide || !posatalValide) {
         etapeValide = false;
       }
       else {

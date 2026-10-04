@@ -21,7 +21,7 @@
         <a href="#etape1"
           class="menu w-15 h-15 sm:w-20 sm:h-20 border-4 border-red-500 bg-red-500 rounded-full hover:bg-red-800 hover:border-red-800 flex items-center justify-center">
           <span class="sr-only">Type de
-            don</span><img class="sm:w-12 sm:h-12 w-10 h-10 fill-black" src="/public/montantDon.svg" role="img"
+            don</span><img class="sm:w-12 sm:h-12 w-10 h-10 " src="/public/montantDon.svg" role="img"
             alt="" />
         </a>
 
@@ -53,150 +53,156 @@
     </ol>
   </nav>
   <!-- formulaire -->
-  <form action="" method="get" class="flex flex-col items-center">
+  <main>
+    <form action="" method="get" class="flex flex-col items-center">
 
-    <!-- étape 1 -->
-    <section
-      class="etape flex flex-col items-center justify-center w-80 sm:w-100 border-4 border-gray-600 p-5 rounded-4xl"
-      id="etape1">
-      <h2 class="">Choisir le type de don et le montant</h2>
-      <fieldset class="flex flex-col gap-2" aria-required="true">
-        <legend class="sr-only">type de son</legend>
-        <div class="flex">
-          <input class="sr-only peer" type="radio" name="type_don" id="unique" value="1">
-          <label for="unique"
-            class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Don
-            unique</label>
-        </div>
-        <div class="flex">
-          <input class="sr-only peer" type="radio" name="type_don" id="parrainer" value="2">
-          <label for="parrainer"
-            class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Parrainer
-            un animal pour un an</label>
-        </div>
-        <div class="flex">
-          <input class="sr-only peer" type="radio" name="type_don" id="offrir" value="3">
-          <label for="offrir"
-            class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Offrir
-            un parrainage</label>
-        </div>
-        <div class="flex">
-          <input class="sr-only peer" type="radio" name="type_don" id="coop" value="4">
-          <label for="coop"
-            class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Parrainage
-            coopératif</label>
-        </div>
-        <span id="erreur-radios" class="message-erreur text-red-600 w-60" role="alert"></span>
-      </fieldset>
+      <!-- étape 1 -->
+      <section
+        class="etape flex flex-col items-center justify-center w-80 sm:w-100 border-4 border-gray-600 p-5 rounded-4xl"
+        id="etape1">
+        <h2 class="">Choisir le type de don et le montant</h2>
+        <fieldset class="flex flex-col gap-2" aria-required="true">
+          <legend class="sr-only">type de don</legend>
+          <div class="flex">
+            <input class="sr-only peer" type="radio" name="type_don" id="unique" value="1">
+            <label for="unique"
+              class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Don
+              unique</label>
+          </div>
+          <div class="flex">
+            <input class="sr-only peer" type="radio" name="type_don" id="parrainer" value="2">
+            <label for="parrainer"
+              class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Parrainer
+              un animal pour un an</label>
+          </div>
+          <div class="flex">
+            <input class="sr-only peer" type="radio" name="type_don" id="offrir" value="3">
+            <label for="offrir"
+              class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Offrir
+              un parrainage</label>
+          </div>
+          <div class="flex">
+            <input class="sr-only peer" type="radio" name="type_don" id="coop" value="4">
+            <label for="coop"
+              class="active:bg-red-500  rounded-2xl p-1 w-60 text-center bg-gray-400 hover:bg-gray-500 hover:text-white peer-checked:border-2 peer-checked:border-red-500">Parrainage
+              coopératif</label>
+          </div>
+          <span id="erreur-radios" class="message-erreur text-red-600 w-60" role="alert"></span>
+        </fieldset>
 
-      <div class="flex flex-col w-60">
-        <label for="montant">Montant du don: </label>
-        <input class="w-30" type="text" name="montant" id="montant" list="montant-recommander"
-          placeholder="Choisissez le montant" pattern="^\d+$" required>
-        <datalist id="montant-recommander">
-          <option value="10"></option>
-          <option value="25"></option>
-          <option value="50"></option>
-          <option value="75"></option>
-          <option value="100"></option>
-          <option value="150"></option>
-        </datalist>
-        <span id="erreur-montant" class="message-erreur text-red-600 w-60" role="alert"></span>
+        <div class="flex flex-col w-60">
+          <label for="montant">Montant du don: </label>
+          <input class="w-30" type="text" name="montant" id="montant" list="montant-recommander"
+            placeholder="Choisissez le montant" pattern="^\d+$" required>
+          <datalist id="montant-recommander">
+            <option value="10"></option>
+            <option value="25"></option>
+            <option value="50"></option>
+            <option value="75"></option>
+            <option value="100"></option>
+            <option value="150"></option>
+          </datalist>
+          <span id="erreur-montant" class="message-erreur text-red-600 w-60" role="alert"></span>
 
+        </div>
+      </section>
+      <!-- étape 2 -->
+      <section
+        class="etape flex flex-col items-center justify-center w-80 sm:w-100 border-4 border-gray-600 p-5 rounded-4xl"
+        id="etape2">
+        <h2>Coordonnées</h2>
+        <fieldset class="flex flex-col">
+          <legend class="sr-only">Coordonées</legend>
+
+          <!-- résumer du don , option de supprimer -->
+
+          <!-- nom,entreprise,adresse,courrielle,valider -->
+          <label for="nom">Nom </label>
+          <input name="nom" type="text" id="nom" required aria-describedby="erreur-nom" autocomplete="family-name"
+            pattern="^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)*$" />
+          <span id="erreur-nom" class="message-erreur text-red-600 w-60" role="alert "></span>
+
+          <label for="prenom">Prénom </label>
+          <input name="prenom" type="text" id="prenom" required aria-describedby="erreur-prenom"
+            autocomplete="given-name" pattern="^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)*$" />
+          <span id="erreur-prenom" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+          <label for="courriel">Courriel </label>
+          <input name="courriel" type="email" id="courriel" required aria-describedby="erreur-courriel"
+            autocomplete="email" pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" />
+          <span id="erreur-courriel" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+          <label for="adresse">Adresse </label>
+          <input name="adresse" type="text" id="adresse" required aria-describedby="erreur-adresse"
+            autocomplete="street-address" pattern="^[0-9]+[a-zA-ZÀ-ÿ0-9 \-]+$" />
+          <span id="erreur-adresse" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+          <label for="ville">Ville </label>
+          <input class="w-30" name="ville" type="text" id="ville" required aria-describedby="erreur-ville"
+            autocomplete="address-level2" pattern="^[a-zA-ZÀ-ÿ0-9 '\-]+$" />
+          <span id="erreur-ville" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+          <label for="postal">Code postal</label>
+          <input class="w-30" name="code_postal" type="text" id="postal" required aria-describedby="erreur-postal"
+            autocomplete="postal-code" pattern="^[a-zA-Z][0-9][a-zA-Z] [0-9][a-zA-Z][0-9]$" />
+          <span id="erreur-postal" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+
+        </fieldset>
+      </section>
+      <!-- étape 3 -->
+      <section
+        class="etape flex flex-col items-center justify-center w-80 sm:w-100 border-4 border-gray-600 p-5 rounded-4xl"
+        id="etape3">
+        <h2>Informations de paiement</h2>
+        <fieldset class="flex flex-col">
+          <legend class="sr-only">Paiement</legend>
+
+          <!-- carte credit, num,expiration,validation -->
+          <label for="numCarte">carte de credit </label>
+          <input name="numCarte" class="w-60" type="text" id="numCarte" required autocomplete="cc-number"
+            inputmode="numeric" pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" />
+          <span id="erreur-numCarte" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+          <label for="expiration"> expiration </label>
+          <input name="expiration" class="w-30" type="text" id="expiration" placeholder="(MM/AA)" autocomplete="cc-exp"
+            inputmode="numeric" required pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$" />
+          <span id="erreur-expiration" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+          <label for="numSecu">numéro de sécurité</label>
+          <input name="numSecu" class="w-30" type="text" id="numSecu" autocomplete="cc-csc" inputmode="numeric" required
+            pattern="^[0-9]{3}" />
+          <span id="erreur-numSecu" class="message-erreur text-red-600 w-60" role="alert"></span>
+
+        </fieldset>
+      </section>
+      <!-- étape 4 -->
+      <section
+        class="etape flex flex-col items-center justify-around w-80 sm:w-100 h-100 border-4 border-gray-600 p-5 rounded-4xl"
+        id="etape4">
+        <div class="flex flex-col items-center gap-5">
+          <h2>Merci pour votre don</h2>
+
+          <p class="flex flex-row">vous allez faire un don de &nbsp;<span id="cibleMontant"> </span>&nbsp; $</p>
+          <p> Votre don va permettre d'aider le refuge à prendre soin et à réhabiliter la faune de la région et de
+            prendre
+            soin de ses divers pensionnaires </p>
+        </div>
+
+        <button class="bg-amber-100  hover:bg-amber-200 rounded-2xl p-6" type="submit"
+          formaction="merci.html">Confirmer</button>
+
+      </section>
+      <div class="flex justify-center items-center gap-4 p-5">
+        <button type="button" id="btn-precedent" class="p-6 bg-red-500  hover:bg-red-800 rounded-2xl text-white">
+          Précédent
+        </button>
+        <button id="btn-suivant" type="button" class="p-6 bg-red-500  hover:bg-red-800 rounded-2xl text-white">
+          Suivant
+        </button>
       </div>
-    </section>
-    <!-- étape 2 -->
-    <section
-      class="etape flex flex-col items-center justify-center w-80 sm:w-100 border-4 border-gray-600 p-5 rounded-4xl"
-      id="etape2">
-      <h2>Coordonnées</h2>
-      <fieldset class="flex flex-col">
-        <!-- résumer du don , option de supprimer -->
-
-        <!-- nom,entreprise,adresse,courrielle,valider -->
-        <label for="nom">Nom </label>
-        <input name="nom" type="text" id="nom" required aria-describedby="erreur-nom" autocomplete="family-name"
-          pattern="^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)*$" />
-        <span id="erreur-nom" class="message-erreur text-red-600 w-60" role="alert "></span>
-
-        <label for="prenom">Prénom </label>
-        <input name="prenom" type="text" id="prenom" required aria-describedby="erreur-prenom" autocomplete="given-name"
-          pattern="^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)*$" />
-        <span id="erreur-prenom" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-        <label for="courriel">Courriel </label>
-        <input name="courriele" type="email" id="courriel" required aria-describedby="erreur-courriel"
-          autocomplete="email" pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" />
-        <span id="erreur-courriel" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-        <label for="adresse">Adresse </label>
-        <input name="adresse" type="text" id="adresse" required aria-describedby="erreur-adresse"
-          autocomplete="street-address" pattern="^[0-9]+[a-zA-ZÀ-ÿ0-9 \-]+$" />
-        <span id="erreur-adresse" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-        <label for="ville">Ville </label>
-        <input class="w-30" name="ville" type="text" id="ville" required aria-describedby="erreur-ville"
-          autocomplete="address-level2" pattern="^[a-zA-ZÀ-ÿ0-9 '\-]+$" />
-        <span id="erreur-ville" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-        <label for="postal">Code postal</label>
-        <input class="w-30" name="code postal" type="text" id="postal" required aria-describedby="erreur-postal"
-          autocomplete="postal-code" pattern="^[a-zA-Z][0-9][a-zA-Z] [0-9][a-zA-Z][0-9]$" />
-        <span id="erreur-postal" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-
-      </fieldset>
-    </section>
-    <!-- étape 3 -->
-    <section
-      class="etape flex flex-col items-center justify-center w-80 sm:w-100 border-4 border-gray-600 p-5 rounded-4xl"
-      id="etape3">
-      <h2>Informations de payment</h2>
-      <fieldset class="flex flex-col">
-        <!-- carte credit, num,expiration,validation -->
-        <label for="numCarte">carte credit </label>
-        <input name="numCarte" class="w-60" type="text" id="numCarte" required autocomplete="cc-number"
-          inputmode="numeric" pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$" />
-        <span id="erreur-numCarte" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-        <label for="expiration"> expiration </label>
-        <input name="expiration" class="w-30" type="text" id="expiration" placeholder="(MM/AA)" autocomplete="cc-exp"
-          inputmode="numeric" required pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$" />
-        <span id="erreur-expiration" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-        <label for="numSecu">numéro de sécurité</label>
-        <input name="numSecu" class="w-30" type="text" id="numSecu" autocomplete="cc-csc" inputmode="numeric" required
-          pattern="^[0-9]{3}" />
-        <span id="erreur-numSecu" class="message-erreur text-red-600 w-60" role="alert"></span>
-
-      </fieldset>
-    </section>
-    <!-- étape 4 -->
-    <section
-      class="etape flex flex-col items-center justify-around w-80 sm:w-100 h-100 border-4 border-gray-600 p-5 rounded-4xl"
-      id="etape4">
-      <div class="flex flex-col items-center gap-5">
-        <h2>Merci pour votre don</h2>
-
-        <p class="flex flew-row">vous allez faire un don de &nbsp;<span id="cibleMontant"> </span>&nbsp; $</p>
-        <p> Votre don va permettre d'aider le refuge à prendre soin et à réhabiliter la faune de la région et de prendre
-          soin de ses divers pensionnaires </p>
-      </div>
-
-      <button class="bg-amber-100  hover:bg-amber-200 rounded-2xl p-6" type="submit"
-        formaction="merci.html">Confirmer</button>
-
-    </section>
-    <div class="flex justify-center items-center gap-4 p-5">
-      <button type="button" id="btn-precedent" class="p-6 bg-red-500  hover:bg-red-800 rounded-2xl text-white">
-        Précédent
-      </button>
-      <button id="btn-suivant" type="button" class="p-6 bg-red-500  hover:bg-red-800 rounded-2xl text-white">
-        Suivant
-      </button>
-    </div>
-  </form>
-
+    </form>
+  </main>
   <script type="module" src="src/main.ts"></script>
 
 </body>

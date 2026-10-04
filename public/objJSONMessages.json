@@ -12,20 +12,12 @@
     "pattern": "Assurez-vous d'entrer une adresse courriel valide.",
     "type": "Assurez-vous d'entrer une adresse courriel."
   },
-  "sujet": {
-    "vide": "Vous devez entrer un sujet.",
-    "pattern": "Entrez une sujet valide."
-  },
-  "message": {
-    "vide": "Entrez un message.",
-    "pattern": "Assurez-vous d'entrer une adresse courriel valide."
-  },
   "radios": {
-    "vide": "Selection une option de don.",
+    "vide": "Sélectionnez une option de don.",
     "pattern": "Entrez une sujet valide."
   },
   "montant": {
-    "vide": "Vous-devez entrer un montant ou choisir un montant.",
+    "vide": "Vous devez entrer un montant ou choisir un montant.",
     "pattern": "Entrez une sujet valide."
   },
   "numCarte": {
