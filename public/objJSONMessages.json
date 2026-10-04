@@ -34,15 +34,15 @@
   },
   "expiration": {
     "vide": "Veuillez entrer la date d'expiration.",
-    "pattern": "Entrez une sujet valide."
+    "pattern": "Entrez un le moi en premier suivi de l'année."
   },
   "numSecu": {
     "vide": "Veuillez entrer le numéro de sécurité.",
-    "pattern": "Entrez une sujet valide."
+    "pattern": "Entrez un maximum de trois numéro."
   },
   "adresse": {
     "vide": "Veuillez entrer le nom de rue et son numéro civique.",
-    "pattern": "Entrez une sujet valide."
+    "pattern": "Entrez une adresse mail valide."
   },
   "ville": {
     "vide": "Veuillez entrer le nom de votre ville",

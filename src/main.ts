@@ -236,16 +236,18 @@ const affichage = () => {
 // navigation left step
 menuNav.forEach(element => {
   element.addEventListener('click', () => {
+
     validerEtape(etape);
 
     console.log("element:", element, etape)
     // on va chercher le numéro de l'étape que j'ai déclarer dans le html
     numNav = Number(element.dataset.step);
 
-    if (numNav <= etape) {
+    if (numNav <= etapeVisiter) {
 
       etape = numNav;
-      console.log("direction vers", etapeVisiter); // Output: 5 (as a number type)
+      console.log(etape)
+      // console.log("direction vers", etapeVisiter); // Output: 5 (as a number type)
 
       affichage();
     }
